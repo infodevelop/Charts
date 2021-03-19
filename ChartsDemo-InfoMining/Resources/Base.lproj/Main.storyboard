@@ -15,10 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-T3-eyw" customClass="LineChart" customModule="ChartsDemo_InfoMining" customModuleProvider="target">
+                                <rect key="frame" x="8" y="60" width="359" height="591"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fpC-T3-eyw" secondAttribute="bottom" constant="16" id="U1b-on-Oin"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fpC-T3-eyw" secondAttribute="trailing" constant="8" id="eLz-eW-20J"/>
+                            <constraint firstItem="fpC-T3-eyw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fJQ-Zb-t0s"/>
+                            <constraint firstItem="fpC-T3-eyw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="t6F-nk-14W"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ChartsDemo" id="0dc-LH-6kl"/>
+                    <connections>
+                        <outlet property="lineChart" destination="fpC-T3-eyw" id="bZm-wR-fpC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

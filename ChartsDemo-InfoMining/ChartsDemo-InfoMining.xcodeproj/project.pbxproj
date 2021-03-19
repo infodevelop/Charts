@@ -15,6 +15,10 @@
 		BF33810F260486AD00D3FACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF33810D260486AD00D3FACD /* LaunchScreen.storyboard */; };
 		BF33811A260486AD00D3FACD /* ChartsDemo_InfoMiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338119260486AD00D3FACD /* ChartsDemo_InfoMiningTests.swift */; };
 		BF338125260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338124260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift */; };
+		BF338181260490BA00D3FACD /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338180260490BA00D3FACD /* LineChart.swift */; };
+		BF338187260492E700D3FACD /* ChartXAxisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */; };
+		BF33819F2604A15100D3FACD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF33816A26048DFD00D3FACD /* Charts.framework */; };
+		BF3381A02604A15100D3FACD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF33816A26048DFD00D3FACD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BF3381A12604A15100D3FACD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF3381A02604A15100D3FACD /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BF3380FF260486AC00D3FACD /* ChartsDemo-InfoMining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChartsDemo-InfoMining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF338102260486AC00D3FACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +82,8 @@
 		BF338124260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDemo_InfoMiningUITests.swift; sourceTree = "<group>"; };
 		BF338126260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF33816426048DFD00D3FACD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
+		BF338180260490BA00D3FACD /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF33819F2604A15100D3FACD /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +122,7 @@
 				BF338123260486AD00D3FACD /* ChartsDemo-InfoMiningUITests */,
 				BF338100260486AC00D3FACD /* Products */,
 				BF33816426048DFD00D3FACD /* Charts.xcodeproj */,
+				BF33819E2604A15100D3FACD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +142,7 @@
 				BF338102260486AC00D3FACD /* AppDelegate.swift */,
 				BF338104260486AC00D3FACD /* SceneDelegate.swift */,
 				BF33817C26048FEF00D3FACD /* Chart */,
+				BF338185260492CE00D3FACD /* Formatters */,
 				BF33817226048ECA00D3FACD /* Controller */,
 			);
 			path = "ChartsDemo-InfoMining";
@@ -181,8 +204,24 @@
 		BF33817C26048FEF00D3FACD /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				BF338180260490BA00D3FACD /* LineChart.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		BF338185260492CE00D3FACD /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		BF33819E2604A15100D3FACD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +234,7 @@
 				BF3380FB260486AC00D3FACD /* Sources */,
 				BF3380FC260486AC00D3FACD /* Frameworks */,
 				BF3380FD260486AC00D3FACD /* Resources */,
+				BF3381A12604A15100D3FACD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,9 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF338181260490BA00D3FACD /* LineChart.swift in Sources */,
 				BF338107260486AC00D3FACD /* LineChartViewController.swift in Sources */,
 				BF338103260486AC00D3FACD /* AppDelegate.swift in Sources */,
 				BF338105260486AC00D3FACD /* SceneDelegate.swift in Sources */,
+				BF338187260492E700D3FACD /* ChartXAxisDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

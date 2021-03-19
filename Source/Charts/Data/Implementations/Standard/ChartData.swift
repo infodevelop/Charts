@@ -470,8 +470,8 @@ extension ChartData//: RangeReplaceableCollection
     @objc(addDataSet:)
     public func append(_ newElement: Element)
     {
+        
         _dataSets.append(newElement)
-        calcMinMax(dataSet: newElement)
     }
 
     @objc(removeDataSetByIndex:)
