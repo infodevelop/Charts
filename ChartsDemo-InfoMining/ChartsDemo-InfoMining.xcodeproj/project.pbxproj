@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF338103260486AC00D3FACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338102260486AC00D3FACD /* AppDelegate.swift */; };
 		BF338105260486AC00D3FACD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338104260486AC00D3FACD /* SceneDelegate.swift */; };
-		BF338107260486AC00D3FACD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338106260486AC00D3FACD /* ViewController.swift */; };
+		BF338107260486AC00D3FACD /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338106260486AC00D3FACD /* LineChartViewController.swift */; };
 		BF33810A260486AC00D3FACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF338108260486AC00D3FACD /* Main.storyboard */; };
 		BF33810C260486AD00D3FACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF33810B260486AD00D3FACD /* Assets.xcassets */; };
 		BF33810F260486AD00D3FACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF33810D260486AD00D3FACD /* LaunchScreen.storyboard */; };
@@ -32,23 +32,38 @@
 			remoteGlobalIDString = BF3380FE260486AC00D3FACD;
 			remoteInfo = "ChartsDemo-InfoMining";
 		};
+		BF33816926048DFD00D3FACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF33816426048DFD00D3FACD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		BF33816B26048DFD00D3FACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF33816426048DFD00D3FACD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BF3380FF260486AC00D3FACD /* ChartsDemo-InfoMining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChartsDemo-InfoMining.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF338102260486AC00D3FACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF338104260486AC00D3FACD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF338106260486AC00D3FACD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF338106260486AC00D3FACD /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		BF338109260486AC00D3FACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF33810B260486AD00D3FACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF33810E260486AD00D3FACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BF338110260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF338110260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		BF338115260486AD00D3FACD /* ChartsDemo-InfoMiningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChartsDemo-InfoMiningTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF338119260486AD00D3FACD /* ChartsDemo_InfoMiningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDemo_InfoMiningTests.swift; sourceTree = "<group>"; };
 		BF33811B260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF338120260486AD00D3FACD /* ChartsDemo-InfoMiningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChartsDemo-InfoMiningUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF338124260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDemo_InfoMiningUITests.swift; sourceTree = "<group>"; };
 		BF338126260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF33816426048DFD00D3FACD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +95,12 @@
 			isa = PBXGroup;
 			children = (
 				BF338101260486AC00D3FACD /* ChartsDemo-InfoMining */,
+				BF33817026048E9800D3FACD /* Resources */,
+				BF33817126048EA400D3FACD /* Supporting Files */,
 				BF338118260486AD00D3FACD /* ChartsDemo-InfoMiningTests */,
 				BF338123260486AD00D3FACD /* ChartsDemo-InfoMiningUITests */,
 				BF338100260486AC00D3FACD /* Products */,
+				BF33816426048DFD00D3FACD /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +119,8 @@
 			children = (
 				BF338102260486AC00D3FACD /* AppDelegate.swift */,
 				BF338104260486AC00D3FACD /* SceneDelegate.swift */,
-				BF338106260486AC00D3FACD /* ViewController.swift */,
-				BF338108260486AC00D3FACD /* Main.storyboard */,
-				BF33810B260486AD00D3FACD /* Assets.xcassets */,
-				BF33810D260486AD00D3FACD /* LaunchScreen.storyboard */,
-				BF338110260486AD00D3FACD /* Info.plist */,
+				BF33817C26048FEF00D3FACD /* Chart */,
+				BF33817226048ECA00D3FACD /* Controller */,
 			);
 			path = "ChartsDemo-InfoMining";
 			sourceTree = "<group>";
@@ -126,6 +141,48 @@
 				BF338126260486AD00D3FACD /* Info.plist */,
 			);
 			path = "ChartsDemo-InfoMiningUITests";
+			sourceTree = "<group>";
+		};
+		BF33816526048DFD00D3FACD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF33816A26048DFD00D3FACD /* Charts.framework */,
+				BF33816C26048DFD00D3FACD /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF33817026048E9800D3FACD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF338108260486AC00D3FACD /* Main.storyboard */,
+				BF33810B260486AD00D3FACD /* Assets.xcassets */,
+				BF33810D260486AD00D3FACD /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BF33817126048EA400D3FACD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF338110260486AD00D3FACD /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF33817226048ECA00D3FACD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF338106260486AC00D3FACD /* LineChartViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF33817C26048FEF00D3FACD /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +274,12 @@
 			mainGroup = BF3380F6260486AC00D3FACD;
 			productRefGroup = BF338100260486AC00D3FACD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BF33816526048DFD00D3FACD /* Products */;
+					ProjectRef = BF33816426048DFD00D3FACD /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BF3380FE260486AC00D3FACD /* ChartsDemo-InfoMining */,
@@ -225,6 +288,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BF33816A26048DFD00D3FACD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = BF33816926048DFD00D3FACD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BF33816C26048DFD00D3FACD /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = BF33816B26048DFD00D3FACD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF3380FD260486AC00D3FACD /* Resources */ = {
@@ -258,7 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF338107260486AC00D3FACD /* ViewController.swift in Sources */,
+				BF338107260486AC00D3FACD /* LineChartViewController.swift in Sources */,
 				BF338103260486AC00D3FACD /* AppDelegate.swift in Sources */,
 				BF338105260486AC00D3FACD /* SceneDelegate.swift in Sources */,
 			);
@@ -438,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7555R8ZYJ2;
-				INFOPLIST_FILE = "ChartsDemo-InfoMining/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7555R8ZYJ2;
-				INFOPLIST_FILE = "ChartsDemo-InfoMining/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

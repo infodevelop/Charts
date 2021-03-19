@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ChartsDemo-InfoMining/ChartsDemo-InfoMining.xcodeproj">
+      location = "container:Charts.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:Charts.xcodeproj">
+      location = "group:ChartsDemo-InfoMining/ChartsDemo-InfoMining.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ChartsDemo-iOS/ChartsDemo-iOS.xcodeproj">
