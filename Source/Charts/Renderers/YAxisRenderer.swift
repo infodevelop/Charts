@@ -332,6 +332,78 @@ open class YAxisRenderer: NSObject, AxisRenderer
                              attributes: [.font: l.valueFont, .foregroundColor: l.valueTextColor])
         }
     }
+    
+    /// HEO: renderHighlightedAreas
+    open func renderHighlightedAreas(context: CGContext)
+    {
+        guard let transformer = self.transformer else { return }
+        
+        let highlightedAreas = axis.highlightedAres
+        
+        guard !highlightedAreas.isEmpty else { return }
+
+        context.saveGState()
+        defer { context.restoreGState() }
+
+        let trans = transformer.valueToPixelMatrix
+        
+        /// startValue Position
+        var positionStart = CGPoint.zero
+        ///endValue Position
+        var positionEnd = CGPoint.zero
+        
+        for a in highlightedAreas where a.isEnabled
+        {
+            context.saveGState()
+            defer { context.restoreGState() }
+            
+            let areaHeight = CGFloat(a.endValue - a.startValue)
+            
+            var clippingRect = viewPortHandler.contentRect
+            clippingRect.origin.y -= a.lineWidth / 2.0
+            clippingRect.size.height += a.lineWidth
+            clippingRect.size.height += areaHeight
+            context.clip(to: clippingRect)
+            
+            positionStart.x = 0.0
+            positionStart.y = CGFloat(a.startValue)
+            positionStart = positionStart.applying(trans)
+            
+            positionEnd.x = 0.0
+            positionEnd.y = CGFloat(a.endValue)
+            positionEnd = positionEnd.applying(trans)
+            
+            /// draw Area
+            context.beginPath()
+            context.move(to: CGPoint(x: viewPortHandler.contentLeft, y: positionStart.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: positionStart.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: positionEnd.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentLeft, y: positionEnd.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentLeft, y: positionStart.y))
+            context.closePath()
+
+            context.setFillColor(a.backgroundColor.cgColor)
+            context.fillPath()
+            
+            /// draw Lines
+            context.beginPath()
+            context.move(to: CGPoint(x: viewPortHandler.contentLeft, y: positionStart.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: positionStart.y))
+            context.move(to: CGPoint(x: viewPortHandler.contentLeft, y: positionEnd.y))
+            context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: positionEnd.y))
+            
+            context.setStrokeColor(a.lineColor.cgColor)
+            context.setLineWidth(a.lineWidth)
+            
+            if a.lineDashLengths != nil {
+                context.setLineDash(phase: a.lineDashPhase, lengths: a.lineDashLengths!)
+            } else {
+                context.setLineDash(phase: 0.0, lengths: [])
+            }
+            context.strokePath()
+        }
+    }
+    
 
     @objc open func computeAxis(min: Double, max: Double, inverted: Bool)
     {

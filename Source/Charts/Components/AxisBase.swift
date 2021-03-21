@@ -62,6 +62,9 @@ open class AxisBase: ComponentBase
     /// array of limitlines that can be set for the axis
     private var _limitLines = [ChartLimitLine]()
     
+    /// HEO: array of highlightedAreas that can be set for the axis
+    private var _highlightedAreas = [HighlightedArea]()
+    
     /// Are the LimitLines drawn behind the data or in front of the data?
     ///
     /// **default**: false
@@ -274,6 +277,31 @@ open class AxisBase: ComponentBase
     @objc open var limitLines : [ChartLimitLine]
     {
         return _limitLines
+    }
+    
+    /// HEO: Adds a new HighlightedArea to this axis.
+    @objc open func addHighlightedArea(_ area: HighlightedArea)
+    {
+        _highlightedAreas.append(area)
+    }
+    
+    /// HEO: Removes the specified HighlightedArea from the axis.
+    @objc open func removeHighlightedArea(_ area: HighlightedArea)
+    {
+        guard let i = _highlightedAreas.firstIndex(of: area) else { return }
+        _highlightedAreas.remove(at: i)
+    }
+    
+    /// HEO: Removes all HighlightedArea from the axis.
+    @objc open func removeAllHighlightedAreas()
+    {
+        _highlightedAreas.removeAll(keepingCapacity: false)
+    }
+    
+    /// HEO: The HighlightedArea of this axis.
+    @objc open var highlightedAres : [HighlightedArea]
+    {
+        return _highlightedAreas
     }
     
     // MARK: Custom axis ranges

@@ -216,16 +216,22 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         if xAxis.isEnabled && xAxis.isDrawLimitLinesBehindDataEnabled
         {
             xAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            xAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if leftAxis.isEnabled && leftAxis.isDrawLimitLinesBehindDataEnabled
         {
             leftYAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            leftYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if rightAxis.isEnabled && rightAxis.isDrawLimitLinesBehindDataEnabled
         {
             rightYAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            rightYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         context.saveGState()
@@ -258,16 +264,22 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
         {
             xAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            xAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if leftAxis.isEnabled && !leftAxis.isDrawLimitLinesBehindDataEnabled
         {
             leftYAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            leftYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if rightAxis.isEnabled && !rightAxis.isDrawLimitLinesBehindDataEnabled
         {
             rightYAxisRenderer.renderLimitLines(context: context)
+            // HEO
+            rightYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         xAxisRenderer.renderAxisLabels(context: context)

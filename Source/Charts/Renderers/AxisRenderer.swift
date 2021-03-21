@@ -34,6 +34,9 @@ public protocol AxisRenderer: Renderer {
 
     /// Draws the LimitLines associated with this axis to the screen.
     func renderLimitLines(context: CGContext)
+    
+    /// HEO: Draws the HighlightedAreas associated with this axis to the screen.
+    func renderHighlightedAreas(context: CGContext)
 
     /// Computes the axis values.
     /// - parameter min: the minimum value in the data object for this axis

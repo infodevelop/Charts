@@ -104,18 +104,47 @@ class LineChart: UIView {
         
         // --- limitLine
         let ll1 = ChartLimitLine(limit: 105, label: "Upper Limit")
-        ll1.lineWidth = 4
+        ll1.lineWidth = 2
         ll1.lineDashLengths = [5, 5]
         ll1.labelPosition = .rightTop
         ll1.valueFont = .systemFont(ofSize: 10)
         
+        let limitTime = dataPoints[5].timeIntervalSince1970 - referenceTimeInterval
+        let ll2 = ChartLimitLine(limit: limitTime, label: "Limit")
+        ll2.lineWidth = 2
+        ll2.lineDashLengths = [5, 5]
+        ll2.labelPosition = .rightTop
+        ll2.valueFont = .systemFont(ofSize: 10)
+        
+        
         // --- Highlight Area
+        let ha1 = HighlightedArea(startValue: 85, endValue: 95)
+        ha1.backgroundColor = UIColor(red: 255/255.0, green: 0/255.0, blue: 255/255.0, alpha: 0.5)
+        ha1.lineWidth = 2
+        ha1.lineDashLengths = [5, 5]
+        ha1.lineColor = UIColor(red: 240/255.0, green: 0/255.0, blue: 240/255.0, alpha: 1.0)
+        
+        let startTime = dataPoints[1].timeIntervalSince1970 - referenceTimeInterval
+        let endTime = dataPoints[4].timeIntervalSince1970 - referenceTimeInterval
+        let ha2 = HighlightedArea(startValue: startTime, endValue: endTime)
+        ha2.backgroundColor = UIColor(red: 0/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.5)
+        ha2.lineWidth = 2
+        ha2.lineDashLengths = [5, 5]
+        ha2.lineColor = UIColor(red: 0/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        
+        xAxis.drawLimitLinesBehindDataEnabled = true
+        xAxis.addLimitLine(ll2)
+        xAxis.addHighlightedArea(ha2)
+        
         
         // --- LeftAxis
         let leftAxis = lineChartView.leftAxis
         leftAxis.drawLimitLinesBehindDataEnabled = true
         leftAxis.addLimitLine(ll1)
 //        InfoVitalChartLeftAxis.addHighligh
+        
+        leftAxis.addHighlightedArea(ha1)
+        
         leftAxis.drawGridLinesEnabled = true
         leftAxis.enabled = true
         
