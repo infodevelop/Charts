@@ -132,8 +132,10 @@ class LineChart: UIView {
         ha2.lineDashLengths = [5, 5]
         ha2.lineColor = UIColor(red: 0/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
+        // --- XAxis Component
         xAxis.drawLimitLinesBehindDataEnabled = true
         xAxis.addLimitLine(ll2)
+        xAxis.drawHighlightedAreasBehindDataEnabled = true
         xAxis.addHighlightedArea(ha2)
         
         
@@ -141,8 +143,7 @@ class LineChart: UIView {
         let leftAxis = lineChartView.leftAxis
         leftAxis.drawLimitLinesBehindDataEnabled = true
         leftAxis.addLimitLine(ll1)
-//        InfoVitalChartLeftAxis.addHighligh
-        
+        leftAxis.drawHighlightedAreasBehindDataEnabled = true
         leftAxis.addHighlightedArea(ha1)
         
         leftAxis.drawGridLinesEnabled = true

@@ -70,6 +70,11 @@ open class AxisBase: ComponentBase
     /// **default**: false
     @objc open var drawLimitLinesBehindDataEnabled = false
     
+    /// HEO: Are the Highlighted drawn behind the data or in front of the data?
+    ///
+    /// **default**: true
+    @objc open var drawHighlightedAreasBehindDataEnabled = true
+    
     /// Are the grid lines drawn behind the data or in front of the data?
     ///
     /// **default**: true
@@ -184,6 +189,11 @@ open class AxisBase: ComponentBase
     /// 
     /// **default**: false
     @objc open var isDrawLimitLinesBehindDataEnabled: Bool { return drawLimitLinesBehindDataEnabled }
+    
+    /// HEO: Are the HighlightedAreas drawn behind the data or in front of the data?
+    ///
+    /// **default**: false
+    @objc open var isDrawHighlightedAreasBehindDataEnabled: Bool { return drawHighlightedAreasBehindDataEnabled }
     
     /// Are the grid lines drawn behind the data or in front of the data?
     ///

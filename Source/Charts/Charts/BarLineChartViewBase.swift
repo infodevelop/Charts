@@ -213,24 +213,35 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             rightYAxisRenderer.renderGridLines(context: context)
         }
         
+        /// Draw LimitLines Behind Data
         if xAxis.isEnabled && xAxis.isDrawLimitLinesBehindDataEnabled
         {
             xAxisRenderer.renderLimitLines(context: context)
-            // HEO
-            xAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if leftAxis.isEnabled && leftAxis.isDrawLimitLinesBehindDataEnabled
         {
             leftYAxisRenderer.renderLimitLines(context: context)
-            // HEO
-            leftYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if rightAxis.isEnabled && rightAxis.isDrawLimitLinesBehindDataEnabled
         {
             rightYAxisRenderer.renderLimitLines(context: context)
-            // HEO
+        }
+        
+        /// HEO: Draw HighlightedAreas Behind Data
+        if xAxis.isEnabled && xAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
+            xAxisRenderer.renderHighlightedAreas(context: context)
+        }
+        
+        if leftAxis.isEnabled && leftAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
+            leftYAxisRenderer.renderHighlightedAreas(context: context)
+        }
+        
+        if rightAxis.isEnabled && rightAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
             rightYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
@@ -261,24 +272,35 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         
         renderer.drawExtras(context: context)
         
+        /// Draw LmitLines In front of Data
         if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
         {
             xAxisRenderer.renderLimitLines(context: context)
-            // HEO
-            xAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if leftAxis.isEnabled && !leftAxis.isDrawLimitLinesBehindDataEnabled
         {
             leftYAxisRenderer.renderLimitLines(context: context)
-            // HEO
-            leftYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
         if rightAxis.isEnabled && !rightAxis.isDrawLimitLinesBehindDataEnabled
         {
             rightYAxisRenderer.renderLimitLines(context: context)
-            // HEO
+        }
+        
+        /// HEO: Draw HighlightedAreas In front of Data
+        if xAxis.isEnabled && !xAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
+            xAxisRenderer.renderHighlightedAreas(context: context)
+        }
+        
+        if leftAxis.isEnabled && !leftAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
+            leftYAxisRenderer.renderHighlightedAreas(context: context)
+        }
+        
+        if rightAxis.isEnabled && !rightAxis.isDrawHighlightedAreasBehindDataEnabled
+        {
             rightYAxisRenderer.renderHighlightedAreas(context: context)
         }
         
