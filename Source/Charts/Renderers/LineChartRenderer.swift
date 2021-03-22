@@ -22,6 +22,9 @@ open class LineChartRenderer: LineRadarRenderer
 
     @objc open weak var dataProvider: LineChartDataProvider?
     
+    /// HEO
+    private let linearFunctionGraph = LinearFunctionGraph()
+    
     @objc public init(dataProvider: LineChartDataProvider, animator: Animator, viewPortHandler: ViewPortHandler)
     {
         super.init(animator: animator, viewPortHandler: viewPortHandler)
@@ -307,6 +310,8 @@ open class LineChartRenderer: LineRadarRenderer
         let isDrawSteppedEnabled = dataSet.mode == .stepped
         let pointsPerEntryPair = isDrawSteppedEnabled ? 4 : 2
         
+        /// HEO
+        let phaseX = animator.phaseX
         let phaseY = animator.phaseY
         
         _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
@@ -389,56 +394,65 @@ open class LineChartRenderer: LineRadarRenderer
                 context.strokeLineSegments(between: _lineSegments)
             }
         }
+        // MARK: 수정중
         else
         { // only one color per dataset
             guard dataSet.entryForIndex(_xBounds.min) != nil else {
                 return
             }
-
+            
             var firstPoint = true
 
             let path = CGMutablePath()
             for x in stride(from: _xBounds.min, through: _xBounds.range + _xBounds.min, by: 1)
             {
-                guard let e1 = dataSet.entryForIndex(x == 0 ? 0 : (x - 1)) else { continue }
-                guard let e2 = dataSet.entryForIndex(x) else { continue }
+                guard let e1 = dataSet.entryForIndex(x == 0 ? 0 : x) else { continue }
+                guard let e2 = dataSet.entryForIndex(x + 1) else { continue }
                 
+                /// HEO
+                guard let firstEntry = dataSet.entryForIndex(_xBounds.min) else { continue }
+                guard let lastEntry = dataSet.entryForIndex(_xBounds.max) else { continue }
+                let between = lastEntry.x - firstEntry.x
+                linearFunctionGraph.set(xStart: e1.x,
+                                        yStart: e1.y,
+                                        xEnd: e2.x,
+                                        yEnd: e2.y)
+                
+                /// 점의 시작점
                 let startPoint =
                     CGPoint(
                         x: CGFloat(e1.x),
                         y: CGFloat(e1.y * phaseY))
                     .applying(valueToPixelMatrix)
                 
-                if firstPoint
-                {
+                /// 첫번째 점일 경우
+                if firstPoint {
                     path.move(to: startPoint)
                     firstPoint = false
-                }
-                else
-                {
+                } else {
                     path.addLine(to: startPoint)
                 }
                 
-                if isDrawSteppedEnabled
-                {
+                if isDrawSteppedEnabled {
                     let steppedPoint =
                         CGPoint(
-                            x: CGFloat(e2.x),
+                            x: CGFloat(min((between * phaseX) + firstEntry.x, e2.x)),
                             y: CGFloat(e1.y * phaseY))
                         .applying(valueToPixelMatrix)
                     path.addLine(to: steppedPoint)
                 }
-
+                
+                let currentX = min((between * phaseX) + firstEntry.x, e2.x)
+                
                 let endPoint =
                     CGPoint(
-                        x: CGFloat(e2.x),
-                        y: CGFloat(e2.y * phaseY))
+                        x: CGFloat(currentX),
+                        y: CGFloat(min(linearFunctionGraph.getY(x: currentX), e2.x) * phaseY))
                     .applying(valueToPixelMatrix)
                 path.addLine(to: endPoint)
             }
             
-            if !firstPoint
-            {
+            if !firstPoint {
                 if dataSet.isDrawLineWithGradientEnabled {
                     drawGradientLine(context: context, dataSet: dataSet, spline: path, matrix: valueToPixelMatrix)
                 } else {

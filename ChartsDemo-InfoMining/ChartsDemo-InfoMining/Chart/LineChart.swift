@@ -46,9 +46,9 @@ class LineChart: UIView {
         lineChartView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
 
         // Line Chart Animation
-        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 0, easingOption: .easeInSine)
+        lineChartView.animate(xAxisDuration: 10.0, yAxisDuration: 0, easingOption: .easeInSine)
 
-        // ReferenceTimeInterval Setting
+        // ReferenceTimeInterval Seatting
         if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {
             referenceTimeInterval = TimeInterval(minTimeInterval)
         }
@@ -77,9 +77,11 @@ class LineChart: UIView {
         let chartData = LineChartData(dataSet: chartDataSet)
         chartData.setDrawValues(false)
         chartDataSet.colors = [UIColor.blue]
+        chartDataSet.lineWidth = 2
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.blue
-        chartDataSet.circleRadius = 4.0
+        chartDataSet.circleRadius = 0
+        chartDataSet.mode = .linear
 
         // --- Gradient fill
         let gradientColors = [UIColor.blue.cgColor, UIColor.clear.cgColor] as CFArray
