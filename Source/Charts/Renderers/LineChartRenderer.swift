@@ -413,6 +413,7 @@ open class LineChartRenderer: LineRadarRenderer
                 guard let firstEntry = dataSet.entryForIndex(_xBounds.min) else { continue }
                 guard let lastEntry = dataSet.entryForIndex(_xBounds.max) else { continue }
                 let between = lastEntry.x - firstEntry.x
+                
                 linearFunctionGraph.set(xStart: e1.x,
                                         yStart: e1.y,
                                         xEnd: e2.x,
@@ -430,7 +431,7 @@ open class LineChartRenderer: LineRadarRenderer
                     path.move(to: startPoint)
                     firstPoint = false
                 } else {
-                    path.addLine(to: startPoint)
+//                    path.addLine(to: startPoint)
                 }
                 
                 if isDrawSteppedEnabled {
@@ -442,14 +443,20 @@ open class LineChartRenderer: LineRadarRenderer
                     path.addLine(to: steppedPoint)
                 }
                 
-                let currentX = min((between * phaseX) + firstEntry.x, e2.x)
-                
                 let endPoint =
                     CGPoint(
-                        x: CGFloat(currentX),
-                        y: CGFloat(min(linearFunctionGraph.getY(x: currentX), e2.x) * phaseY))
+                        x: CGFloat(min((between * phaseX) + firstEntry.x, e2.x)),
+                        y: CGFloat(linearFunctionGraph.getY(x: min((between * phaseX) + firstEntry.x, e2.x)) * phaseY))
                     .applying(valueToPixelMatrix)
                 path.addLine(to: endPoint)
+                
+                
+                print("x: \(x)")
+                print("testX: \((between * phaseX) + firstEntry.x)")
+                print("e2.x: \(e2.x)")
+                print("currentX : \(min((between * phaseX) + firstEntry.x, e2.x))")
+                print("endPoint.y : \(endPoint.y)")
+                print()
             }
             
             if !firstPoint {
@@ -458,6 +465,7 @@ open class LineChartRenderer: LineRadarRenderer
                 } else {
                     context.beginPath()
                     context.addPath(path)
+                    print("path : \(path)")
                     context.setStrokeColor(dataSet.color(atIndex: 0).cgColor)
                     context.strokePath()
                 }

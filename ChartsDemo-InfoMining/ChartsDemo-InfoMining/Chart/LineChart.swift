@@ -46,7 +46,7 @@ class LineChart: UIView {
         lineChartView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
 
         // Line Chart Animation
-        lineChartView.animate(xAxisDuration: 10.0, yAxisDuration: 0, easingOption: .easeInSine)
+        lineChartView.animate(xAxisDuration: 5.0, yAxisDuration: 0, easingOption: .easeInSine)
 
         // ReferenceTimeInterval Seatting
         if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {
