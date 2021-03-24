@@ -206,7 +206,8 @@ open class LineChartRenderer: LineRadarRenderer
         guard let dataProvider = dataProvider else { return }
         
         let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
-
+        
+        let phaseX = animator.phaseX
         let phaseY = animator.phaseY
         
         _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
@@ -228,11 +229,25 @@ open class LineChartRenderer: LineRadarRenderer
             var curDx: CGFloat = 0.0
             var curDy: CGFloat = 0.0
             
+            var firstX: Double = 0.0
+            var firstY: Double = 0.0
+            var secondX: Double = 0.0
+            var secondY: Double = 0.0
+            var thirdX: Double = 0.0
+            var thirdY: Double = 0.0
+            
+            var animX: Double = 0.0
+            
             // Take an extra point from the left, and an extra from the right.
             // That's because we need 4 points for a cubic bezier (cubic=4), otherwise we get lines moving and doing weird stuff on the edges of the chart.
             // So in the starting `prev` and `cur`, go -2, -1
             
             let firstIndex = _xBounds.min + 1
+            
+            var firstEntry: ChartDataEntry! = dataSet.entryForIndex(_xBounds.min)
+            var lastEntry: ChartDataEntry! = dataSet.entryForIndex(_xBounds.max)
+            let between = lastEntry.x - firstEntry.x
+            
             
             var prevPrev: ChartDataEntry! = nil
             var prev: ChartDataEntry! = dataSet.entryForIndex(max(firstIndex - 2, 0))
@@ -241,6 +256,9 @@ open class LineChartRenderer: LineRadarRenderer
             var nextIndex: Int = firstIndex
             
             if cur == nil { return }
+            
+            var xArray = [Double]()
+            var yArray = [Double]()
             
             // let the spline start
             cubicPath.move(to: CGPoint(x: CGFloat(cur.x), y: CGFloat(cur.y * phaseY)), transform: valueToPixelMatrix)

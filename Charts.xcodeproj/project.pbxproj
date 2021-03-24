@@ -122,6 +122,7 @@
 		BEFD9518F3A74ACF8FA33308 /* Charts.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F9922F0641F7955DC6CD324 /* Charts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF91153C2606479C00562E1B /* HighlightedArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91153B2606479C00562E1B /* HighlightedArea.swift */; };
 		BFCAB0D92608ABE100FB8CAA /* LinearFunctionGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCAB0D82608ABE100FB8CAA /* LinearFunctionGraph.swift */; };
+		BFCAB0F4260B28EC00FB8CAA /* CubicSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCAB0F3260B28EC00FB8CAA /* CubicSpline.swift */; };
 		C03E6D8123DAAB2600083010 /* ChartDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E6D8023DAAB2600083010 /* ChartDataTests.swift */; };
 		C04D269AD4A373FD2B621C43 /* LineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C978F31F23C7D21197DC2A1 /* LineChartData.swift */; };
 		C09E91F67A4AC43C277E7D82 /* BubbleChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8ED233775EEC31243A6919 /* BubbleChartDataEntry.swift */; };
@@ -296,6 +297,7 @@
 		BF91153B2606479C00562E1B /* HighlightedArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedArea.swift; sourceTree = "<group>"; };
 		BFABD027DAF6851088F002AC /* LineChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartDataProvider.swift; path = Source/Charts/Interfaces/LineChartDataProvider.swift; sourceTree = "<group>"; };
 		BFCAB0D82608ABE100FB8CAA /* LinearFunctionGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearFunctionGraph.swift; sourceTree = "<group>"; };
+		BFCAB0F3260B28EC00FB8CAA /* CubicSpline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicSpline.swift; sourceTree = "<group>"; };
 		C03E6D8023DAAB2600083010 /* ChartDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTests.swift; sourceTree = "<group>"; };
 		C31AA65EA27776F8C653C7E8 /* BarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/BarChartDataSet.swift; sourceTree = "<group>"; };
 		C52E8344160B5E689DA3C25C /* ChevronDownShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChevronDownShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/ChevronDownShapeRenderer.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				324C9127B53A8D39C8B49277 /* TransformerHorizontalBarChart.swift */,
 				72EAEBB7CF73E33565FC2896 /* ViewPortHandler.swift */,
 				BFCAB0D82608ABE100FB8CAA /* LinearFunctionGraph.swift */,
+				BFCAB0F3260B28EC00FB8CAA /* CubicSpline.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				78084A4F1D850D5775BC139E /* XAxis.swift in Sources */,
 				2FBA7E982EB57932B9F3E9B5 /* YAxis.swift in Sources */,
 				E50D291A6B6E69BF0B56A67C /* ChartBaseDataSet.swift in Sources */,
+				BFCAB0F4260B28EC00FB8CAA /* CubicSpline.swift in Sources */,
 				3395682A1E27756651FF6F4D /* BarChartData.swift in Sources */,
 				45C459FA25DFCBE62FA6A06C /* BarChartDataEntry.swift in Sources */,
 				17E994DA88777AA1D8CCFC58 /* BarChartDataSet.swift in Sources */,
