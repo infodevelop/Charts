@@ -15,6 +15,9 @@ import CoreGraphics
 /// Chart that draws lines, surfaces, circles, ...
 open class LineChartView: BarLineChartViewBase, LineChartDataProvider
 {
+    // HEO : enhancedXAxisAnimation
+    open var enhancedXAxisAnimation = false
+    
     internal override func initialize()
     {
         super.initialize()

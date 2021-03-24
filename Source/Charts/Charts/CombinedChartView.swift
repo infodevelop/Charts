@@ -120,6 +120,9 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
         }
     }
     
+    // HEO
+    public var enhancedXAxisAnimation = false
+    
     // MARK: - BarChartDataProvider
     
     open var barData: BarChartData?

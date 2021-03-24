@@ -47,6 +47,7 @@ class LineChart: UIView {
 
         // Line Chart Animation
         lineChartView.animate(xAxisDuration: 5.0, yAxisDuration: 0, easingOption: .easeInSine)
+        lineChartView.enhancedXAxisAnimation = true
 
         // ReferenceTimeInterval Seatting
         if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {
@@ -81,7 +82,7 @@ class LineChart: UIView {
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.blue
         chartDataSet.circleRadius = 0
-        chartDataSet.mode = .linear
+        chartDataSet.mode = .cubicBezier
 
         // --- Gradient fill
         let gradientColors = [UIColor.blue.cgColor, UIColor.clear.cgColor] as CFArray
