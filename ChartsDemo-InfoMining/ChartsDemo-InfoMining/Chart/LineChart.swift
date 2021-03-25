@@ -46,7 +46,7 @@ class LineChart: UIView {
         lineChartView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
 
         // Line Chart Animation
-        lineChartView.animate(xAxisDuration: 5.0, yAxisDuration: 0, easingOption: .easeInSine)
+        lineChartView.animate(xAxisDuration: 4.0, yAxisDuration: 0, easingOption: .easeInSine)
         lineChartView.enhancedXAxisAnimation = true
 
         // ReferenceTimeInterval Seatting

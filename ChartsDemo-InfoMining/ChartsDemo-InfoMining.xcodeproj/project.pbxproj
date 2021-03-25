@@ -118,11 +118,11 @@
 				BF338101260486AC00D3FACD /* ChartsDemo-InfoMining */,
 				BF33817026048E9800D3FACD /* Resources */,
 				BF33817126048EA400D3FACD /* Supporting Files */,
-				BF338118260486AD00D3FACD /* ChartsDemo-InfoMiningTests */,
-				BF338123260486AD00D3FACD /* ChartsDemo-InfoMiningUITests */,
 				BF338100260486AC00D3FACD /* Products */,
 				BF33816426048DFD00D3FACD /* Charts.xcodeproj */,
 				BF33819E2604A15100D3FACD /* Frameworks */,
+				BF338118260486AD00D3FACD /* ChartsDemo-InfoMiningTests */,
+				BF338123260486AD00D3FACD /* ChartsDemo-InfoMiningUITests */,
 			);
 			sourceTree = "<group>";
 		};
