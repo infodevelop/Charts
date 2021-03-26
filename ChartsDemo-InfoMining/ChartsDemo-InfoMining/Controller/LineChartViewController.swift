@@ -59,7 +59,23 @@ class LineChartViewController: UIViewController, GetChartData {
                         vitalSign(time: "2021-01-26 19:15:00", value: 85),
                         vitalSign(time: "2021-01-26 19:20:00", value: 100),
                         vitalSign(time: "2021-01-26 19:25:00", value: 105),
-                        vitalSign(time: "2021-01-26 19:30:00", value: 95)]
+                        vitalSign(time: "2021-01-26 19:30:00", value: 90),
+                        vitalSign(time: "2021-01-26 19:35:00", value: 85),
+                        vitalSign(time: "2021-01-26 19:40:00", value: 95),
+                        vitalSign(time: "2021-01-26 19:45:00", value: 80),
+                        vitalSign(time: "2021-01-26 19:50:00", value: 90),
+                        vitalSign(time: "2021-01-26 19:55:00", value: 85),
+                        vitalSign(time: "2021-01-26 20:00:00", value: 100),
+                        vitalSign(time: "2021-01-26 20:05:00", value: 105),
+                        vitalSign(time: "2021-01-26 20:10:00", value: 90),
+                        vitalSign(time: "2021-01-26 20:15:00", value: 85),
+                        vitalSign(time: "2021-01-26 20:20:00", value: 95),
+                        vitalSign(time: "2021-01-26 20:25:00", value: 80),
+                        vitalSign(time: "2021-01-26 20:30:00", value: 90),
+                        vitalSign(time: "2021-01-26 20:35:00", value: 85),
+                        vitalSign(time: "2021-01-26 20:40:00", value: 100),
+                        vitalSign(time: "2021-01-26 20:45:00", value: 105),
+                        vitalSign(time: "2021-01-26 20:50:00", value: 95)]
     
     // example Data
     var allSigns = [vitalSign]()

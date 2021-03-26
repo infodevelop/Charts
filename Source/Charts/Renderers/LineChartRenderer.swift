@@ -261,7 +261,7 @@ open class LineChartRenderer: LineRadarRenderer
                 let endPoint =
                     CGPoint(
                         x: CGFloat(x),
-                        y: CGFloat(spline.interpolate(x)))
+                        y: CGFloat(spline.interpolate(x) * phaseY))
                     .applying(valueToPixelMatrix)
                 path.addLine(to: endPoint)
             }

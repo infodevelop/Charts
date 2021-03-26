@@ -18,7 +18,7 @@ open class LineChartView: BarLineChartViewBase, LineChartDataProvider
     // HEO
     open var enhancedXAxisAnimation = false
     // default: 200
-    open var cubicLineDefinition = 200
+    open var cubicLineDefinition = 1000
     
     internal override func initialize()
     {
