@@ -122,6 +122,7 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
     
     // HEO
     public var enhancedXAxisAnimation = false
+    public var cubicLineDefinition = 200
     
     // MARK: - BarChartDataProvider
     

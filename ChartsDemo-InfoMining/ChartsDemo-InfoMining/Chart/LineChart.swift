@@ -48,6 +48,7 @@ class LineChart: UIView {
         // Line Chart Animation
         lineChartView.animate(xAxisDuration: 4.0, yAxisDuration: 0, easingOption: .easeInSine)
         lineChartView.enhancedXAxisAnimation = true
+        lineChartView.cubicLineDefinition = 200
 
         // ReferenceTimeInterval Seatting
         if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {

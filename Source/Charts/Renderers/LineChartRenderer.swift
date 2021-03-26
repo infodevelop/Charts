@@ -199,153 +199,13 @@ open class LineChartRenderer: LineRadarRenderer
             drawLine(context: context, spline: cubicPath, drawingColor: drawingColor)
         }
     }
-    
-    // MARK: 수정중
-    /*
+
+    /// HEO: enhancedCubicBezier
     @objc open func drawEnhancedCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         guard let dataProvider = dataProvider else { return }
         
-        let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
-        
-        let phaseX = animator.phaseX
-        let phaseY = animator.phaseY
-        
-        _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
-        
-        // get the color that is specified for this position from the DataSet
-        let drawingColor = dataSet.colors.first!
-        
-        let intensity = dataSet.cubicIntensity
-        
-        // the path for the cubic-spline
-        let cubicPath = CGMutablePath()
-        
-        let valueToPixelMatrix = trans.valueToPixelMatrix
-        
-        if _xBounds.range >= 1 {
-            
-            var prevDx: CGFloat = 0.0
-            var prevDy: CGFloat = 0.0
-            var curDx: CGFloat = 0.0
-            var curDy: CGFloat = 0.0
-            
-            var endX: Double = 0.0
-            var endY: Double = 0.0
-            var ctrl1X: Double = 0.0
-            var ctrl1Y: Double = 0.0
-            var ctrl2X: Double = 0.0
-            var ctrl2Y: Double = 0.0
-            
-            var animX: Double = 0.0
-            
-            // Take an extra point from the left, and an extra from the right.
-            // That's because we need 4 points for a cubic bezier (cubic=4), otherwise we get lines moving and doing weird stuff on the edges of the chart.
-            // So in the starting `prev` and `cur`, go -2, -1
-            
-            let firstIndex = _xBounds.min + 1
-            
-            let firstEntry: ChartDataEntry! = dataSet.entryForIndex(_xBounds.min)
-            let lastEntry: ChartDataEntry! = dataSet.entryForIndex(_xBounds.max)
-            let between = lastEntry.x - firstEntry.x
-            
-            var prevPrev: ChartDataEntry! = nil
-            var prev: ChartDataEntry! = dataSet.entryForIndex(max(firstIndex - 2, 0))
-            var cur: ChartDataEntry! = dataSet.entryForIndex(max(firstIndex - 1, 0))
-            var next: ChartDataEntry! = cur
-            var nextIndex: Int = -1
-            
-            if cur == nil { return }
-            
-            var xArray = [Double]()
-            var yArray = [Double]()
-            
-            for i in 0..<dataSet.entryCount {
-                let e: ChartDataEntry! = dataSet.entryForIndex(i)
-                xArray.append(e.x)
-                yArray.append(e.y)
-            }
-            
-            let spline = CubicSpline(xPoints: xArray, yPoints: yArray)
-            
-            // let the spline start
-            cubicPath.move(to: CGPoint(x: CGFloat(cur.x), y: CGFloat(cur.y * phaseY)), transform: valueToPixelMatrix)
-            
-//            for j in _xBounds.dropFirst()  // same as firstIndex
-            for j in stride(from: _xBounds.min, through: _xBounds.range + _xBounds.min, by: 1)
-            {
-                prevPrev = prev
-                prev = cur
-                cur = nextIndex == j ? next : dataSet.entryForIndex(j)
-                
-                nextIndex = j + 1 < dataSet.entryCount ? j + 1 : j
-                next = dataSet.entryForIndex(nextIndex)
-                
-                if next == nil { break }
-                
-                prevDx = CGFloat(cur.x - prevPrev.x) * intensity
-                prevDy = CGFloat(cur.y - prevPrev.y) * intensity
-                curDx = CGFloat(next.x - prev.x) * intensity
-                curDy = CGFloat(next.y - prev.y) * intensity
-                
-                animX = firstEntry.x + (between * phaseX)
-                
-                endX = min(cur.x, animX)
-                endY = spline.interpolate(endX)
-                ctrl1X = min((cur.x - prev.x)/2 + prev.x, animX)
-                ctrl1Y = spline.interpolate(prev.x)
-                ctrl2X = min((cur.x - prev.x)/2 + prev.x, animX)
-                ctrl2Y = spline.interpolate(endX)
-                
-                print("endX = min(\(cur.x), \(animX))")
-                print("endY = \(endY)")
-                print("ctrl1X = min(\(prev.x), \(animX))")
-                print("ctrl1Y = \(ctrl1Y)")
-                print("ctrl2X = min(\(prev.x + (cur.x - prev.x)/2), \(animX))")
-                print("ctrl2Y = \(ctrl2Y)")
-                print()
-                
-                cubicPath.addCurve(
-                    to: CGPoint(
-                        x: CGFloat(endX),
-                        y: CGFloat(endY)),
-                    control1: CGPoint(
-                        x: CGFloat(ctrl1X),
-                        y: CGFloat(ctrl1Y)),
-                    control2: CGPoint(
-                        x: CGFloat(ctrl2X),
-                        y: CGFloat(ctrl2Y)),
-                    transform: valueToPixelMatrix)
-            }
-        }
-        
-        context.saveGState()
-        defer { context.restoreGState() }
-
-        if dataSet.isDrawFilledEnabled
-        {
-            // Copy this path because we make changes to it
-            let fillPath = cubicPath.mutableCopy()
-            
-            drawCubicFill(context: context, dataSet: dataSet, spline: fillPath!, matrix: valueToPixelMatrix, bounds: _xBounds)
-        }
-
-        if dataSet.isDrawLineWithGradientEnabled
-        {
-            drawGradientLine(context: context, dataSet: dataSet, spline: cubicPath, matrix: valueToPixelMatrix)
-        }
-        else
-        {
-            drawLine(context: context, spline: cubicPath, drawingColor: drawingColor)
-            print("cubicPath : \(cubicPath)")
-        }
-    }
-    */
-    
-    // MARK: 수정중 - Line방식
-    @objc open func drawEnhancedCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
-    {
-        guard let dataProvider = dataProvider else { return }
+        let cubicLineDefinition = dataProvider.cubicLineDefinition
         
         let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
         
@@ -394,7 +254,7 @@ open class LineChartRenderer: LineRadarRenderer
             }
             
             let currentX = min((between * phaseX) + firstEntry.x, e2.x)
-            let unit = between / 200
+            let unit = between / Double(cubicLineDefinition)
             
             // 곡선 생성(약 200개의 직선으로 구성)
             for x in stride(from: e1.x, through: currentX, by: unit) {
@@ -568,7 +428,7 @@ open class LineChartRenderer: LineRadarRenderer
                 for j in _xBounds.dropLast()
                 {
                     var e: ChartDataEntry! = dataSet.entryForIndex(j)
-                    
+                       
                     if e == nil { continue }
                     
                     _lineSegments[0].x = CGFloat(e.x)
