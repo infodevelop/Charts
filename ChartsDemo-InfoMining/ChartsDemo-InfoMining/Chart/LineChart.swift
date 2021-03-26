@@ -77,13 +77,13 @@ class LineChart: UIView {
         }
         let chartDataSet = LineChartDataSet(entries: lineDataEntry, label: "BPM")
         let chartData = LineChartData(dataSet: chartDataSet)
-        chartData.setDrawValues(false)
+        chartData.setDrawValues(true)
         chartDataSet.colors = [UIColor.blue]
         chartDataSet.lineWidth = 2
         chartDataSet.setCircleColor(UIColor.blue)
         chartDataSet.circleHoleColor = UIColor.blue
-        chartDataSet.circleRadius = 0
-        chartDataSet.mode = .cubicBezier
+        chartDataSet.circleRadius = 4.0
+        chartDataSet.mode = .linear
 
         // --- Gradient fill
         let gradientColors = [UIColor.blue.cgColor, UIColor.clear.cgColor] as CFArray

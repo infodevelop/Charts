@@ -88,7 +88,7 @@ class LineChartViewController: UIViewController, GetChartData {
         super.viewDidLoad()
         
         // Chart Data
-        allSigns = signsRegular
+        allSigns = signsIrregular
         
         // Populate chart data
         populateChartData()
