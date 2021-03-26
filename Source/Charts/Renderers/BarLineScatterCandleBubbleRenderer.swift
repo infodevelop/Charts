@@ -23,6 +23,9 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
 
     internal var _xBounds = XBounds() // Reusable XBounds object
     
+    // HEO : for enhancedLinear, ehancedCubicBezier
+    internal var _enhancedXBounds = EnhancedXBounds()
+    
     public init(animator: Animator, viewPortHandler: ViewPortHandler)
     {
         self.viewPortHandler = viewPortHandler
@@ -109,6 +112,29 @@ open class BarLineScatterCandleBubbleRenderer: NSObject, DataRenderer
             self.min = entryFrom == nil ? 0 : dataSet.entryIndex(entry: entryFrom!)
             self.max = entryTo == nil ? 0 : dataSet.entryIndex(entry: entryTo!)
             range = Int(Double(self.max - self.min) * phaseX)
+        }
+    }
+    
+    /// HEO : EnhancedXBounds
+    open class EnhancedXBounds: XBounds
+    {
+        /// Calculates the minimum and maximum x values as well as the range between them.
+        open override func set(chart: BarLineScatterCandleBubbleChartDataProvider,
+                      dataSet: BarLineScatterCandleBubbleChartDataSetProtocol,
+                      animator: Animator?)
+        {
+            let phaseX = Swift.max(0.0, Swift.min(1.0, animator?.phaseX ?? 1.0))
+            
+            let low = chart.lowestVisibleX
+            let high = chart.highestVisibleX
+            
+            let entryFrom = dataSet.entryForXValue(low, closestToY: .nan, rounding: .down)
+            let entryTo = dataSet.entryForXValue(high, closestToY: .nan, rounding: .up)
+            let entryPhase = dataSet.entryForXValue(((high - low) * phaseX), closestToY: .nan, rounding: .down)
+            
+            self.min = entryFrom == nil ? 0 : dataSet.entryIndex(entry: entryFrom!)
+            self.max = entryTo == nil ? 0 : dataSet.entryIndex(entry: entryTo!)
+            range = entryPhase == nil ? 0 : Swift.min(dataSet.entryIndex(entry: entryPhase!), Int(Double(self.max - self.min) * phaseX))
         }
     }
     

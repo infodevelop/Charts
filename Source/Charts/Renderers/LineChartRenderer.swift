@@ -205,6 +205,8 @@ open class LineChartRenderer: LineRadarRenderer
     {
         guard let dataProvider = dataProvider else { return }
         
+        _xBounds = _enhancedXBounds
+        
         let cubicLineDefinition = dataProvider.cubicLineDefinition
         
         let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
@@ -551,6 +553,8 @@ open class LineChartRenderer: LineRadarRenderer
     @objc open func drawEnhancedLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         guard let dataProvider = dataProvider else { return }
+        
+        _xBounds = _enhancedXBounds
         
         let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
         
