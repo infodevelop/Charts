@@ -1,14 +1,13 @@
 //
-//  ChartXAxisDateFormatter.swift
+//  XAxisDateFormatter.swift
 //  ChartsDemo-InfoMining
 //
 //  Created by Heo on 2021/03/19.
 //
-
 import Foundation
 import Charts
 
-class ChartXAxisDateFormatter: NSObject {
+class XAxisDateFormatter: NSObject {
     fileprivate var referenceTimeInterval: TimeInterval?
     fileprivate var dateFormatter: DateFormatter?
 
@@ -18,7 +17,7 @@ class ChartXAxisDateFormatter: NSObject {
     }
 }
 
-extension ChartXAxisDateFormatter: AxisValueFormatter {
+extension XAxisDateFormatter: AxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let dateFormatter = dateFormatter,
         let referenceTimeInterval = referenceTimeInterval

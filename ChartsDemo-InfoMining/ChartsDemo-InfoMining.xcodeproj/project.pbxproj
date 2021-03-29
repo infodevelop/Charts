@@ -16,9 +16,9 @@
 		BF33811A260486AD00D3FACD /* ChartsDemo_InfoMiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338119260486AD00D3FACD /* ChartsDemo_InfoMiningTests.swift */; };
 		BF338125260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338124260486AD00D3FACD /* ChartsDemo_InfoMiningUITests.swift */; };
 		BF338181260490BA00D3FACD /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338180260490BA00D3FACD /* LineChart.swift */; };
-		BF338187260492E700D3FACD /* ChartXAxisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */; };
 		BF33819F2604A15100D3FACD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF33816A26048DFD00D3FACD /* Charts.framework */; };
 		BF3381A02604A15100D3FACD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF33816A26048DFD00D3FACD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFCAB1792611764E00FB8CAA /* XAxisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCAB1782611764E00FB8CAA /* XAxisDateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		BF338126260486AD00D3FACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF33816426048DFD00D3FACD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
 		BF338180260490BA00D3FACD /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
-		BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisDateFormatter.swift; sourceTree = "<group>"; };
+		BFCAB1782611764E00FB8CAA /* XAxisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +142,8 @@
 				BF338102260486AC00D3FACD /* AppDelegate.swift */,
 				BF338104260486AC00D3FACD /* SceneDelegate.swift */,
 				BF33817C26048FEF00D3FACD /* Chart */,
-				BF338185260492CE00D3FACD /* Formatters */,
 				BF33817226048ECA00D3FACD /* Controller */,
+				BFCAB1772611761900FB8CAA /* Formatters */,
 			);
 			path = "ChartsDemo-InfoMining";
 			sourceTree = "<group>";
@@ -209,19 +209,19 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		BF338185260492CE00D3FACD /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				BF338186260492E700D3FACD /* ChartXAxisDateFormatter.swift */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
 		BF33819E2604A15100D3FACD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFCAB1772611761900FB8CAA /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				BFCAB1782611764E00FB8CAA /* XAxisDateFormatter.swift */,
+			);
+			path = Formatters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,11 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCAB1792611764E00FB8CAA /* XAxisDateFormatter.swift in Sources */,
 				BF338181260490BA00D3FACD /* LineChart.swift in Sources */,
 				BF338107260486AC00D3FACD /* LineChartViewController.swift in Sources */,
 				BF338103260486AC00D3FACD /* AppDelegate.swift in Sources */,
 				BF338105260486AC00D3FACD /* SceneDelegate.swift in Sources */,
-				BF338187260492E700D3FACD /* ChartXAxisDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

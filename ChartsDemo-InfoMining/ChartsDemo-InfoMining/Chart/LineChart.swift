@@ -49,11 +49,6 @@ class LineChart: UIView {
         lineChartView.animate(xAxisDuration: 4.0, yAxisDuration: 0, easingOption: .easeInSine)
         lineChartView.enhancedXAxisAnimation = true
         lineChartView.cubicLineDefinition = 1000
-
-        // ReferenceTimeInterval Seatting
-        if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {
-            referenceTimeInterval = TimeInterval(minTimeInterval)
-        }
         
         // Line Chart Population
         setLineChart(dataPoints: time, values: bpm)
@@ -67,6 +62,11 @@ class LineChart: UIView {
         lineChartView.noDataText = "No data for the chart."
         lineChartView.backgroundColor = UIColor.white
 
+        // ReferenceTimeInterval Setting
+        if let minTimeInterval = (time.map{$0.timeIntervalSince1970}).min() {
+            referenceTimeInterval = TimeInterval(minTimeInterval)
+        }
+        
         // --- Data point setup & color config
         for index in 0..<dataPoints.count {
             let timeInterval = dataPoints[index].timeIntervalSince1970
@@ -98,7 +98,7 @@ class LineChart: UIView {
         dateFormat.dateFormat = "HH:mm"
         dateFormat.locale = Locale(identifier: "ko_kr")
         dateFormat.timeZone = TimeZone(abbreviation: "KST")
-        let xValuesFormatter = ChartXAxisDateFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: dateFormat)
+        let xValuesFormatter = XAxisDateFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: dateFormat)
         
         // --- XAxis Setup
         let xAxis = lineChartView.xAxis
